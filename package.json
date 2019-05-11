@@ -1,0 +1,42 @@
+{
+  "name": "halo-score-board",
+  "version": "1.0.0",
+  "description": "Track daily halo score",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ayemane/spacex_launch_missions.git"
+  },
+  "keywords": [
+    "react",
+    "apollo",
+    "graphql"
+  ],
+  "author": "Akilas Yemane",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ayemane/halo-score-board/issues"
+  },
+  "homepage": "https://github.com/ayemane/halo-score-board#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "classnames": "^2.2.6",
+    "concurrently": "^4.1.0",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "express-graphql": "^0.8.0",
+    "graphql": "^14.2.1"
+  },
+  "devDependencies": {
+    "eslint-config-prettier": "^4.2.0",
+    "eslint-plugin-prettier": "^3.0.1",
+    "nodemon": "^1.19.0",
+    "prettier": "^1.17.0"
+  }
+}
