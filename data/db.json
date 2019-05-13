@@ -1,0 +1,30 @@
+{
+  "games": [
+    {
+      "id": 1,
+      "map": "guardian",
+      "time": "",
+      "players": ["klept0", "booskaa"],
+      "winner": "klept0"
+    },
+    {
+      "id": 2,
+      "map": "foundry",
+      "time": "",
+      "players": ["klept0", "booskaa"],
+      "winner": "booskaa"
+    }
+  ],
+  "players": [
+    {
+      "id": "klept09",
+      "name": "klept09",
+      "avatar": "http://akilasyemane.com/avatar/Akilas150.png"
+    },
+    {
+      "id": "booskaa",
+      "name": "booskaa",
+      "avatar": "http://akilasyemane.com/avatar/Akilas150.png"
+    }
+  ]
+}

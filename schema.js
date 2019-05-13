@@ -22,7 +22,8 @@ const GameType = new GraphQLObjectType({
 const PlayerType = new GraphQLObjectType({
   name: "Player",
   fields: () => ({
-    player_name: { type: GraphQLString },
+    id: { type: GraphQLString },
+    name: { type: GraphQLString },
     avatar: { type: GraphQLString }
   })
 });
@@ -31,38 +32,36 @@ const RootQuery = new GraphQLObjectType({
   name: "RootQueryType",
   fields: {
     games: {
-      type: new GraphQLList(LaunchType),
+      type: new GraphQLList(GameType),
       resolve(parent, args) {
-        return axios
-          .get("https://api.spacexdata.com/v3/launches")
-          .then(res => res.data);
+        return axios.get("http://localhost:4000/games").then(res => res.data);
       }
     },
     game: {
-      type: LaunchType,
+      type: GameType,
       args: {
         id: { type: GraphQLInt }
       },
       resolve(parent, args) {
         return axios
-          .get(`http://localhost:3000/games/${args.id}`)
+          .get(`http://localhost:4000/games/${args.id}`)
           .then(res => res.data);
       }
     },
     players: {
       type: new GraphQLList(PlayerType),
       resolve(parent, args) {
-        return axios.get("http://localhost:3000/players").then(res => res.data);
+        return axios.get("http://localhost:4000/players").then(res => res.data);
       }
     },
     player: {
       type: PlayerType,
       args: {
-        id: { type: GraphQLInt }
+        id: { type: GraphQLString }
       },
-      resolve(parent, args) {
+      resolve(parent, { id }) {
         return axios
-          .get(`http://localhost:3000/players/${args.id}`)
+          .get(`http://localhost:4000/players/${id}`)
           .then(res => res.data);
       }
     }
