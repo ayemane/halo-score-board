@@ -10,8 +10,12 @@ const QUERY = gql`
       id
       map
       time
-      players
-      winner
+      players {
+				name	
+			}
+      winner {
+				name
+			}
     }
   }
 `;
@@ -35,6 +39,7 @@ export class Games extends Component {
         <AddGame addGame={this.addGame.bind(this)} />
         <Query query={QUERY}>
           {({ loading, error, data }) => {
+						console.log({data})
             if (loading) return <h4>Loading...</h4>;
             if (error) console.log(error);
             return (

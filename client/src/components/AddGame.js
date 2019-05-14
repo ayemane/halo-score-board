@@ -1,15 +1,16 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import moment from "moment";
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+import moment from 'moment';
+import {map, filter} from 'lodash';
 
 export default class AddGame extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      map: "",
-      players: ["a", "b"],
-      winner: ""
+      map: '',
+      players: [],
+      winner: '',
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -23,18 +24,19 @@ export default class AddGame extends Component {
 
   handleInputChange(event) {
     const target = event.target;
+    console.log({event});
     const value =
-      target.type === "checkbox" ? target.checked : target.value.split(",");
+      target.type === 'checkbox' ? target.checked : target.value.split(',');
     const name = target.name;
 
     this.setState({
-      [name]: value
+      [name]: value,
     });
-    console.log(target.value.split(","));
+    console.log(target.value.split(','));
   }
 
   setPlayers(e) {
-    console.log(e.target.value);
+    this.setState({players: map(e.target.selectedOptions, o => o.value)});
   }
 
   render() {
@@ -46,8 +48,7 @@ export default class AddGame extends Component {
             <select
               name="map"
               defaultValue={this.state.map}
-              onChange={this.handleInputChange}
-            >
+              onChange={this.handleInputChange}>
               <option>Guardian</option>
               <option>Foundry</option>
               <option>Isolation</option>
@@ -59,8 +60,7 @@ export default class AddGame extends Component {
               multiple={true}
               defaultValue={this.state.players}
               //value={this.state.players}
-              onChange={this.setPlayers.bind(this)}
-            >
+              onChange={this.setPlayers.bind(this)}>
               <option>klept0</option>
               <option>booska</option>
               <option>pinky</option>
@@ -72,8 +72,7 @@ export default class AddGame extends Component {
             <select
               name="winner"
               defaultValue={this.state.winner}
-              onChange={this.handleInputChange}
-            >
+              onChange={this.handleInputChange}>
               <option>klept0</option>
               <option>booska</option>
               <option>pinky</option>
@@ -85,7 +84,7 @@ export default class AddGame extends Component {
             <input
               type="text"
               name="time"
-              defaultValue={moment().format("LLLL")}
+              defaultValue={moment().format('LLLL')}
             />
           </div>
           <div className="col-md-1">time</div>
