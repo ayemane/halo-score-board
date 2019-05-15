@@ -11,7 +11,9 @@ const QUERY = gql`
       map
       time
       players {
+        id
         name
+        avatar
       }
       winner {
         name
@@ -21,7 +23,9 @@ const QUERY = gql`
 `;
 
 export class Games extends Component {
-  addGame(game) {}
+  addGame(game) {
+    console.log(game);
+  }
 
   render() {
     return (

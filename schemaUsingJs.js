@@ -17,7 +17,6 @@ const GameType = new GraphQLObjectType({
     players: {
       type: new GraphQLList(PlayerType),
       resolve({ players }) {
-        //console.log({ players });
         return Promise.all(
           players.map(id =>
             axios
@@ -25,10 +24,8 @@ const GameType = new GraphQLObjectType({
               .then(res => res.data)
           )
         ).then(data => {
-          //console.log({data});
           return data;
         });
-        /*return axios.get("http://localhost:4000/players").then(res => res.data);*/
       }
     },
     winner: { type: PlayerType }
