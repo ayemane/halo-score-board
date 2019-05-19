@@ -41,7 +41,7 @@ export default class AddGame extends Component {
       <form onSubmit={this.handleSubmit}>
         <div className="row">
           <div className="col-md-1">.</div>
-          <div className="col-md-1">
+          <div className="col-md-2">
             <select
               name="map"
               defaultValue={this.state.map}
@@ -67,7 +67,7 @@ export default class AddGame extends Component {
               <option>gypC</option>
             </select>
           </div>
-          <div className="col-md-1">
+          <div className="col-md-2">
             <select
               name="winner"
               defaultValue={this.state.winner}
@@ -80,14 +80,13 @@ export default class AddGame extends Component {
               <option>gypC</option>
             </select>
           </div>
-          <div className="col-md-1">
+          <div className="col-md-2">
             <input
               type="text"
               name="time"
               defaultValue={moment().format("LLLL")}
             />
           </div>
-          <div className="col-md-1">time</div>
           <div className="col-md-1">
             <input type="submit" value="Add" />
           </div>

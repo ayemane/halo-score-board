@@ -33,10 +33,10 @@ export class Games extends Component {
         <h3 className="my-3">Games</h3>
         <div className="row">
           <div className="col-md-1">ID</div>
-          <div className="col-md-1">map</div>
+          <div className="col-md-2">map</div>
           <div className="col-md-2">players</div>
-          <div className="col-md-1">winner</div>
-          <div className="col-md-1">time</div>
+          <div className="col-md-2">winner</div>
+          <div className="col-md-2">time</div>
         </div>
         <AddGame addGame={this.addGame.bind(this)} />
         <Query query={QUERY}>

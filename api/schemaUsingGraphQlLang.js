@@ -51,7 +51,7 @@ var resolvers = {
       players = players.split(",");
       return Promise.all(players.map(id => db.Player.findByPk(id)));
     },
-    winner(parent, args, c) {
+    winner(parent, args) {
       console.log("resolve winner ", parent.winner);
       return db.Player.findByPk(parent.winner);
     }
