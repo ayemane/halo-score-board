@@ -4,11 +4,11 @@
   "description": "Track daily halo score",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "server": "nodemon server.js",
+    "start": "node api/server.js",
+    "server": "nodemon api/server.js",
     "client": "npm start --prefix client",
-    "data": "json-server ./data/db.json",
-    "dev": "concurrently \"json-server -p 4000 ./data/db.json\" \"npm run server\" \"npm run client\""
+    "json-server": "json-server -p 4000 ./api/data/db.json",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
@@ -39,7 +39,10 @@
     "moment": "^2.24.0",
     "mongodb": "^3.2.4",
     "mysql": "latest",
-    "sequelize": "^5.8.6"
+    "mysql-model": "0.0.3",
+    "mysql2": "^1.6.5",
+    "sequelize": "^5.8.6",
+    "sequelize-cli": "^5.4.0"
   },
   "devDependencies": {
     "eslint-config-prettier": "^4.2.0",
