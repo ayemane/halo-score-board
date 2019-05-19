@@ -1,5 +1,7 @@
 const axios = require("axios");
 const { makeExecutableSchema } = require("graphql-tools");
+const db = require("./config/database");
+
 //import { makeExecutableSchema } from "graphql-tools";
 
 var typeDefs = [
@@ -32,29 +34,26 @@ var resolvers = {
   Query: {
     games: () => {
       console.log("fetch ALL games");
-      return axios.get("http://localhost:4000/games").then(res => res.data);
+      return db.Game.findAll()
+        .then(games => {
+          console.log("fetched count" + games.length);
+          return games;
+        })
+        .catch(err => console.log(err));
     },
     player({ id }) {
       console.log("resolve player " + id);
-      return axios
-        .get(`http://localhost:4000/players/${id}`)
-        .then(res => res.data);
+      return db.Player.findByPk(id);
     }
   },
   Game: {
     players({ players }) {
-      console.log("resolving players ", players);
-      return Promise.all(
-        players.map(id =>
-          axios.get(`http://localhost:4000/players/${id}`).then(res => res.data)
-        )
-      );
+      players = players.split(",");
+      return Promise.all(players.map(id => db.Player.findByPk(id)));
     },
     winner(parent, args, c) {
       console.log("resolve winner ", parent.winner);
-      return axios
-        .get(`http://localhost:4000/players/${parent.winner}`)
-        .then(res => res.data);
+      return db.Player.findByPk(parent.winner);
     }
   }
 };
