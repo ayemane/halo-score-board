@@ -1,5 +1,12 @@
 {
   "development": {
+    "host": "aa12tcmm84n8jq1.cosmwr3ccv2q.us-east-1.rds.amazonaws.com",
+    "username": "halo3",
+    "password": "%65mX0h5EKqx",
+    "database": "halo_dev",
+    "dialect": "mysql"
+  },
+  "development-local": {
     "username": "root",
     "password": "password",
     "database": "halo_dev",
