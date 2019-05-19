@@ -4,16 +4,16 @@
   "description": "Track daily halo score",
   "main": "server.js",
   "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "deploy": "npm run build --prefix client && npm run zip",
     "start": "node api/server.js",
     "server": "nodemon api/server.js",
     "client": "npm start --prefix client",
-    "json-server": "json-server -p 4000 ./api/data/db.json",
-    "local": "concurrently \"npm run server\" \"npm run client\"",
-    "dev": "concurrently \"npm run start\" \"npm run client\""
+    "zip": "zip -r dist-`date '+%Y-%m-%d-%H-%M'`.zip ./ -x /node_modules/* -x /client/node_modules/* -x *.git*"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/ayemane/spacex_launch_missions.git"
+    "url": "git+ssh://git@github.com/ayemane/halo-score-board.git"
   },
   "keywords": [
     "react",
