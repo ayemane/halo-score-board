@@ -5,7 +5,10 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import logo from "./logo.jpg";
 import Games from "./components/Games";
 
-const client = new ApolloClient({ uri: "http://localhost:5000/graphql" });
+const client = new ApolloClient({
+  //uri: "http://halo3.us-east-1.elasticbeanstalk.com/graphql"
+  uri: "http://halo3.us-east-1.elasticbeanstalk.com/graphql"
+});
 
 class App extends Component {
   render() {
@@ -16,7 +19,7 @@ class App extends Component {
             <img
               src={logo}
               alt="Halo Scoreboard"
-              style={{ width: 200, display: "block", margin: "auto" }}
+              style={{ width: 200, display: "block" }}
             />
             <Route exact path="/" component={Games} />
           </div>
