@@ -4,11 +4,9 @@
   "description": "Track daily halo score",
   "main": "server.js",
   "scripts": {
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "dev": "concurrently \"nodemon api/server.js\" \"npm run dev --prefix client\"",
     "deploy": "npm run build --prefix client && npm run zip",
     "start": "node api/server.js",
-    "server": "nodemon api/server.js",
-    "client": "npm start --prefix client",
     "zip": "zip -r dist-`date '+%Y-%m-%d-%H-%M'`.zip ./ -x /node_modules/* -x /client/node_modules/* -x *.git* -x *.zip"
   },
   "repository": {
@@ -32,7 +30,6 @@
     "classnames": "^2.2.6",
     "concurrently": "^4.1.0",
     "cors": "^2.8.5",
-    "dotenv": "^8.0.0",
     "express": "^4.16.4",
     "express-graphql": "^0.8.0",
     "graphql": "^14.2.1",
@@ -48,6 +45,7 @@
   },
   "devDependencies": {
     "css-loader": "^2.1.1",
+    "dotenv": "^8.0.0",
     "eslint-config-prettier": "^4.2.0",
     "eslint-plugin-prettier": "^3.0.1",
     "nodemon": "^1.19.0",

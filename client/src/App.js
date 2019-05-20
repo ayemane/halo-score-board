@@ -7,11 +7,12 @@ import Games from "./components/Games";
 
 const client = new ApolloClient({
   //uri: "http://halo3.us-east-1.elasticbeanstalk.com/graphql"
-  uri: "/graphql"
+  uri: process.env.API_URL + "/graphql"
 });
 
 class App extends Component {
   render() {
+    console.log("process.env.API_URL", process.env.API_URL);
     return (
       <ApolloProvider client={client}>
         <Router>

@@ -1,9 +1,10 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ManifestPlugin = require("webpack-manifest-plugin");
+const CleanWebpackPlugin = require("clean-webpack-plugin");
+const Dotenv = require("dotenv-webpack");
 
-module.exports = {
-  mode: "development",
+module.exports = (env, argv) => ({
   entry: "./src/index.js",
   output: {
     path: path.join(__dirname, "/dist"),
@@ -29,10 +30,13 @@ module.exports = {
     ]
   },
   plugins: [
+    new Dotenv({
+      path: `./.env.${argv.mode}`
+    }),
+    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      template: "./src/index.html",
-      title: "Halo Score"
+      template: "./src/index.html"
     }),
     new ManifestPlugin()
   ]
-};
+});
