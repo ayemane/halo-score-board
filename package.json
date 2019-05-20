@@ -9,7 +9,7 @@
     "start": "node api/server.js",
     "server": "nodemon api/server.js",
     "client": "npm start --prefix client",
-    "zip": "zip -r dist-`date '+%Y-%m-%d-%H-%M'`.zip ./ -x /node_modules/* -x /client/node_modules/* -x *.git*"
+    "zip": "zip -r dist-`date '+%Y-%m-%d-%H-%M'`.zip ./ -x /node_modules/* -x /client/node_modules/* -x *.git* -x *.zip"
   },
   "repository": {
     "type": "git",
