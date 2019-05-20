@@ -7,7 +7,7 @@ const schema = require("./schema");
 const app = express();
 const cors = require("cors");
 
-app.use(express.static("client/build"));
+app.use(express.static("client/dist"));
 
 //Allow cross-origin
 app.use(cors());

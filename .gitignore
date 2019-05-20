@@ -6,4 +6,4 @@ node_modules
 !.elasticbeanstalk/*.global.yml
 secrets.yml
 *.zip
-client/build/*
+client/dist/*

@@ -7,7 +7,7 @@ import Games from "./components/Games";
 
 const client = new ApolloClient({
   //uri: "http://halo3.us-east-1.elasticbeanstalk.com/graphql"
-  uri: "http://halo3.us-east-1.elasticbeanstalk.com/graphql"
+  uri: "/graphql"
 });
 
 class App extends Component {
@@ -19,7 +19,7 @@ class App extends Component {
             <img
               src={logo}
               alt="Halo Scoreboard"
-              style={{ width: 200, display: "block" }}
+              style={{ width: 100, display: "block" }}
             />
             <Route exact path="/" component={Games} />
           </div>
