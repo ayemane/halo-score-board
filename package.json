@@ -5,9 +5,9 @@
   "main": "server.js",
   "scripts": {
     "dev": "concurrently \"nodemon api/server.js\" \"npm run dev --prefix client\"",
-    "deploy": "npm run build --prefix client && npm run zip",
+    "deploy": "npm run build --prefix client && npm run create-source-bundle",
     "start": "node api/server.js",
-    "zip": "zip -r dist-`date '+%Y-%m-%d-%H-%M'`.zip ./ -x /node_modules/* -x /client/node_modules/* -x *.git* -x *.zip"
+    "create-source-bundle": "zip -r dist-`date '+%Y-%m-%d-%H-%M'`.zip ./ -x /node_modules/* -x /client/node_modules/* -x *.git* -x *.zip"
   },
   "repository": {
     "type": "git",
