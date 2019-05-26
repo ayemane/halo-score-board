@@ -3,6 +3,7 @@ import gql from "graphql-tag";
 import { Query } from "react-apollo";
 import Game from "./Game";
 import AddGame from "./AddGame";
+import axios from "axios";
 
 const QUERY = gql`
   {
@@ -19,32 +20,36 @@ const QUERY = gql`
         name
       }
     }
+    players {
+      id
+      name
+      avatar
+    }
   }
 `;
 
 export class Games extends Component {
   addGame(game) {
     console.log(game);
+    axios.post(process.env.API_URL + "/games", game);
   }
 
   render() {
     return (
       <Fragment>
-        <h3 className="my-3">Games</h3>
-        <div className="row">
-          <div className="col-md-1">ID</div>
-          <div className="col-md-2">map</div>
-          <div className="col-md-2">players</div>
-          <div className="col-md-2">winner</div>
-          <div className="col-md-2">time</div>
-        </div>
-        <AddGame addGame={this.addGame.bind(this)} />
         <Query query={QUERY}>
           {({ loading, error, data }) => {
             if (loading) return <h4>Loading...</h4>;
             if (error) console.log(error);
             return (
               <Fragment>
+                <h3 className="my-5">Games Played: {data.games.length}</h3>
+
+                <AddGame
+                  players={data.players}
+                  addGame={this.addGame.bind(this)}
+                />
+
                 {data.games.map(game => (
                   <Game key={game.id} game={game} />
                 ))}

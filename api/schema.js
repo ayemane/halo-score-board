@@ -23,6 +23,7 @@ var typeDefs = [
   type Query {
     games: [Game!]!
     player(id: String!): Player
+    players: [Player]
   }
 
   schema {
@@ -44,11 +45,15 @@ var resolvers = {
     player({ id }) {
       console.log("resolve player " + id);
       return db.Player.findByPk(id);
+    },
+    players: () => {
+      console.log("resolve All players");
+      return db.Player.findAll();
     }
   },
   Game: {
     players({ players }) {
-      players = players.split(",");
+      players = (players || "").split(",");
       return Promise.all(players.map(id => db.Player.findByPk(id)));
     },
     winner(parent, args) {

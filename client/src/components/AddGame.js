@@ -1,15 +1,24 @@
 import React, { Component } from "react";
-import moment from "moment";
 import { map } from "lodash";
+import Select from "react-select";
 
 export default class AddGame extends Component {
   constructor(props) {
     super(props);
+    const players_options = props.players.map(player => ({
+      value: player.id,
+      label: player.name
+    }));
 
+    console.log("players_options", players_options);
+    const maps = ["Foundry", "Guardian"];
     this.state = {
       map: "",
       players: [],
-      winner: ""
+      winner: "",
+      players_options: players_options,
+      winner_options: [],
+      map_options: maps.map(map => ({ label: map, value: map }))
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -30,68 +39,61 @@ export default class AddGame extends Component {
       [name]: value
     });
   }
+  updateWinner({ value }, { name }) {
+    console.log(value, name);
+    this.setState({
+      [name]: value
+    });
+  }
 
-  setPlayers(e) {
-    this.setState({ players: map(e.target.selectedOptions, o => o.value) });
-    //console.log(this.state.players);
+  setMap(map) {
+    this.setState({
+      map: map
+    });
+  }
+
+  setPlayers(selectedOptions) {
+    this.setState({
+      players: map(selectedOptions, o => o.value)
+    });
   }
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <div className="row">
-          <div className="col-md-1">.</div>
-          <div className="col-md-2">
-            <select
+      <div className="row">
+        <div className="col-md-4">
+          <form onSubmit={this.handleSubmit}>
+            <Select
               name="map"
               defaultValue={this.state.map}
-              onChange={this.handleInputChange}
-            >
-              <option>Guardian</option>
-              <option>Foundry</option>
-              <option>Isolation</option>
-            </select>
-          </div>
-          <div className="col-md-2">
-            <select
+              onChange={this.updateWinner.bind(this)}
+              options={this.state.map_options}
+            />
+            <Select
               name="players"
               multiple={true}
               defaultValue={this.state.players}
-              //value={this.state.players}
               onChange={this.setPlayers.bind(this)}
-            >
-              <option>klept0</option>
-              <option>booska</option>
-              <option>pinky</option>
-              <option>iKill</option>
-              <option>gypC</option>
-            </select>
-          </div>
-          <div className="col-md-2">
-            <select
+              options={this.state.players_options}
+              isMulti={true}
+            />
+            <Select
               name="winner"
               defaultValue={this.state.winner}
-              onChange={this.handleInputChange}
-            >
-              <option>klept0</option>
-              <option>booska</option>
-              <option>pinky</option>
-              <option>iKill</option>
-              <option>gypC</option>
-            </select>
-          </div>
-          <div className="col-md-2">
-            <input
-              type="text"
-              name="time"
-              defaultValue={moment().format("LLLL")}
+              onChange={this.updateWinner.bind(this)}
+              options={this.state.players.map(p => ({
+                label: p,
+                value: p
+              }))}
             />
-          </div>
-          <div className="col-md-1">
-            <input type="submit" value="Add" />
-          </div>
+            <input
+              type="submit"
+              value="Save"
+              className="btn btn-primary btn-lg"
+            />
+          </form>
         </div>
-      </form>
+      </div>
     );
   }
 }
