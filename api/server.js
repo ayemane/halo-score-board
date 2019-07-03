@@ -20,6 +20,7 @@ app.use(
 );
 
 app.use(bodyParser.json());
+
 app.post("/games", function(req, res) {
   console.log("Add Game!!", req.body);
   const { map, players, time, winner } = req.body;
@@ -32,6 +33,68 @@ app.post("/games", function(req, res) {
     time: Date.now()
   }).then(({ game }, created) => {
     res.send(game);
+  });
+});
+
+app.post("/who-won-the-last-game", function(req, res) {
+  db.Game.max("id").then(max => {
+    db.Game.findByPk(max).then(game => {
+      res.send({
+        fulfillmentText: game.winner + " won the last game",
+        source: "https://app.thehaloscore.com",
+        payload: {
+          google: {
+            expectUserResponse: false,
+            richResponse: {
+              items: [
+                {
+                  simpleResponse: {
+                    textToSpeech: game.winner + " won the last game"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      });
+    });
+  });
+});
+
+app.post("/dialog-flow/save-score", function(req, res) {
+  console.log("#####################################");
+  console.log(JSON.stringify(req.body));
+  console.log("#####################################");
+  const {
+    queryResult: {
+      parameters: { players, winner, map }
+    }
+  } = req.body;
+
+  db.Game.create({
+    map,
+    players: (players || []).join(","),
+    winner,
+    time: Date.now()
+  }).then(({ game }, created) => {
+    res.send({
+      fulfillmentText: `Got it. map ${map}, winner ${winner}. I've updated the scoreboard`,
+      source: "https://app.thehaloscore.com",
+      payload: {
+        google: {
+          expectUserResponse: false,
+          richResponse: {
+            items: [
+              {
+                simpleResponse: {
+                  textToSpeech: `Got it. map ${map}, winner ${winner}. I've updated the scoreboard`
+                }
+              }
+            ]
+          }
+        }
+      }
+    });
   });
 });
 

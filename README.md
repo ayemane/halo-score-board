@@ -16,9 +16,7 @@ Simple app to track halo scores
 
 - React app at http://localhost:3000/
 
-* Useful links
-  - Elastic Beanstalk
-    - python stuff https://www.andreagrandi.it/2018/12/19/installing-python-and-virtualenv-on-osx/
   - Zip up project (to upload to EB)
-    - git archive -v -o myapp.zip --format=zip HEAD
-    - zip -r \* ./ -x /node_modules/\* -x /client/node_modules/\* -x \*.git\*
+    - npm run deploy
+
+- Google assistant invoke with: "Talk to halo score"
