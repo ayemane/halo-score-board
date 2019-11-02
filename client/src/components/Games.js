@@ -28,6 +28,16 @@ const QUERY = gql`
   }
 `;
 
+const Header = () => (
+  <div className="row">
+    <div className="col-md-1">Game ID</div>
+    <div className="col-md-2">Map</div>
+    <div className="col-md-2">Players</div>
+    <div className="col-md-2">Winner</div>
+    <div className="col-md-2">Time</div>
+  </div>
+);
+
 export class Games extends Component {
   addGame(game) {
     console.log(game);
@@ -50,6 +60,7 @@ export class Games extends Component {
                   addGame={this.addGame.bind(this)}
                 />
 
+                <Header />
                 {data.games.map(game => (
                   <Game key={game.id} game={game} />
                 ))}

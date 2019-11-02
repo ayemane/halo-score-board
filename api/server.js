@@ -62,9 +62,6 @@ app.post("/who-won-the-last-game", function(req, res) {
 });
 
 app.post("/dialog-flow/save-score", function(req, res) {
-  console.log("#####################################");
-  console.log(JSON.stringify(req.body));
-  console.log("#####################################");
   const {
     queryResult: {
       parameters: { players, winner, map }
@@ -78,7 +75,10 @@ app.post("/dialog-flow/save-score", function(req, res) {
     time: Date.now()
   }).then(({ game }, created) => {
     res.send({
-      fulfillmentText: `Got it. map ${map}, winner ${winner}. I've updated the scoreboard`,
+      //fulfillmentText: `Got it. map ${map}, winner ${winner}. I've updated the scoreboard. Game number ${
+      fulfillmentText: `Got it. Game ${
+        game.id
+      }, ${winner} won on ${map}. I've updated the scoreboard`,
       source: "https://app.thehaloscore.com",
       payload: {
         google: {
