@@ -7,3 +7,4 @@ node_modules
 secrets.yml
 *.zip
 client/dist/*
+api/config/config.json
