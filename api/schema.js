@@ -35,7 +35,9 @@ var resolvers = {
   Query: {
     games: () => {
       console.log("fetch ALL games");
-      return db.Game.findAll()
+      return db.Game.findAll({
+        order: [["id", "DESC"]]
+      })
         .then(games => {
           console.log("fetched count" + games.length);
           return games;

@@ -1,0 +1,145 @@
+{
+  "responseId": "c18f4bd3-2f7e-4d0e-be1d-0c71c88e3b9f-68e175c7",
+  "queryResult": {
+    "queryText": "Foundry",
+    "parameters": {
+      "players": ["booskaa", "klept0"],
+      "winner": "booskaa",
+      "map": "Foundry"
+    },
+    "allRequiredParamsPresent": true,
+    "fulfillmentMessages": [{ "text": { "text": [""] } }],
+    "outputContexts": [
+      {
+        "name": "projects/halo-save-score-jxrjyl/agent/sessions/ABwppHHEHq_fck90HHAQG1rq9LVv4TujyI30vg1EEKY2ppXImrNSBlPc8zdrWbww-v2JMqdjGiBL5DLn9FMyTvjGWq4J0w/contexts/actions_capability_account_linking",
+        "parameters": {
+          "players": ["booskaa", "klept0"],
+          "players.original": ["Busca", "klepto"],
+          "winner": "booskaa",
+          "winner.original": "Busca",
+          "map": "Foundry",
+          "map.original": "Foundry"
+        }
+      },
+      {
+        "name": "projects/halo-save-score-jxrjyl/agent/sessions/ABwppHHEHq_fck90HHAQG1rq9LVv4TujyI30vg1EEKY2ppXImrNSBlPc8zdrWbww-v2JMqdjGiBL5DLn9FMyTvjGWq4J0w/contexts/actions_capability_audio_output",
+        "parameters": {
+          "players": ["booskaa", "klept0"],
+          "players.original": ["Busca", "klepto"],
+          "winner": "booskaa",
+          "winner.original": "Busca",
+          "map": "Foundry",
+          "map.original": "Foundry"
+        }
+      },
+      {
+        "name": "projects/halo-save-score-jxrjyl/agent/sessions/ABwppHHEHq_fck90HHAQG1rq9LVv4TujyI30vg1EEKY2ppXImrNSBlPc8zdrWbww-v2JMqdjGiBL5DLn9FMyTvjGWq4J0w/contexts/actions_capability_web_browser",
+        "parameters": {
+          "players": ["booskaa", "klept0"],
+          "players.original": ["Busca", "klepto"],
+          "winner": "booskaa",
+          "winner.original": "Busca",
+          "map": "Foundry",
+          "map.original": "Foundry"
+        }
+      },
+      {
+        "name": "projects/halo-save-score-jxrjyl/agent/sessions/ABwppHHEHq_fck90HHAQG1rq9LVv4TujyI30vg1EEKY2ppXImrNSBlPc8zdrWbww-v2JMqdjGiBL5DLn9FMyTvjGWq4J0w/contexts/actions_capability_screen_output",
+        "parameters": {
+          "players": ["booskaa", "klept0"],
+          "players.original": ["Busca", "klepto"],
+          "winner": "booskaa",
+          "winner.original": "Busca",
+          "map": "Foundry",
+          "map.original": "Foundry"
+        }
+      },
+      {
+        "name": "projects/halo-save-score-jxrjyl/agent/sessions/ABwppHHEHq_fck90HHAQG1rq9LVv4TujyI30vg1EEKY2ppXImrNSBlPc8zdrWbww-v2JMqdjGiBL5DLn9FMyTvjGWq4J0w/contexts/actions_capability_media_response_audio",
+        "parameters": {
+          "players": ["booskaa", "klept0"],
+          "players.original": ["Busca", "klepto"],
+          "winner": "booskaa",
+          "winner.original": "Busca",
+          "map": "Foundry",
+          "map.original": "Foundry"
+        }
+      },
+      {
+        "name": "projects/halo-save-score-jxrjyl/agent/sessions/ABwppHHEHq_fck90HHAQG1rq9LVv4TujyI30vg1EEKY2ppXImrNSBlPc8zdrWbww-v2JMqdjGiBL5DLn9FMyTvjGWq4J0w/contexts/google_assistant_input_type_voice",
+        "parameters": {
+          "players": ["booskaa", "klept0"],
+          "players.original": ["Busca", "klepto"],
+          "winner": "booskaa",
+          "winner.original": "Busca",
+          "map": "Foundry",
+          "map.original": "Foundry"
+        }
+      },
+      {
+        "name": "projects/halo-save-score-jxrjyl/agent/sessions/ABwppHHEHq_fck90HHAQG1rq9LVv4TujyI30vg1EEKY2ppXImrNSBlPc8zdrWbww-v2JMqdjGiBL5DLn9FMyTvjGWq4J0w/contexts/google_assistant_input_type_keyboard",
+        "parameters": {
+          "players": ["booskaa", "klept0"],
+          "players.original": ["Busca", "klepto"],
+          "winner": "booskaa",
+          "winner.original": "Busca",
+          "map": "Foundry",
+          "map.original": "Foundry"
+        }
+      }
+    ],
+    "intent": {
+      "name": "projects/halo-save-score-jxrjyl/agent/intents/d2e8b14b-804b-4fa2-ae85-c5c47ae02cf1",
+      "displayName": "save a score",
+      "endInteraction": true
+    },
+    "intentDetectionConfidence": 0.01,
+    "languageCode": "en"
+  },
+  "originalDetectIntentRequest": {
+    "source": "google",
+    "version": "2",
+    "payload": {
+      "user": {
+        "locale": "en-US",
+        "lastSeen": "2019-07-02T23:38:40Z",
+        "userVerificationStatus": "VERIFIED"
+      },
+      "conversation": {
+        "conversationId": "ABwppHHEHq_fck90HHAQG1rq9LVv4TujyI30vg1EEKY2ppXImrNSBlPc8zdrWbww-v2JMqdjGiBL5DLn9FMyTvjGWq4J0w",
+        "type": "ACTIVE",
+        "conversationToken": "[\"d2e8b14b-804b-4fa2-ae85-c5c47ae02cf1_id_dialog_context\",\"save_a_score_dialog_context\",\"save_a_score_dialog_params_map\",\"actions_capability_account_linking\",\"actions_capability_audio_output\",\"actions_capability_web_browser\",\"actions_capability_screen_output\",\"actions_capability_media_response_audio\",\"google_assistant_input_type_voice\",\"google_assistant_input_type_keyboard\"]"
+      },
+      "inputs": [
+        {
+          "intent": "actions.intent.TEXT",
+          "rawInputs": [{ "inputType": "VOICE", "query": "Foundry" }],
+          "arguments": [
+            { "name": "text", "rawText": "Foundry", "textValue": "Foundry" }
+          ]
+        }
+      ],
+      "surface": {
+        "capabilities": [
+          { "name": "actions.capability.ACCOUNT_LINKING" },
+          { "name": "actions.capability.AUDIO_OUTPUT" },
+          { "name": "actions.capability.WEB_BROWSER" },
+          { "name": "actions.capability.SCREEN_OUTPUT" },
+          { "name": "actions.capability.MEDIA_RESPONSE_AUDIO" }
+        ]
+      },
+      "isInSandbox": true,
+      "availableSurfaces": [
+        {
+          "capabilities": [
+            { "name": "actions.capability.WEB_BROWSER" },
+            { "name": "actions.capability.AUDIO_OUTPUT" },
+            { "name": "actions.capability.SCREEN_OUTPUT" }
+          ]
+        }
+      ],
+      "requestType": "SIMULATOR"
+    }
+  },
+  "session": "projects/halo-save-score-jxrjyl/agent/sessions/ABwppHHEHq_fck90HHAQG1rq9LVv4TujyI30vg1EEKY2ppXImrNSBlPc8zdrWbww-v2JMqdjGiBL5DLn9FMyTvjGWq4J0w"
+}

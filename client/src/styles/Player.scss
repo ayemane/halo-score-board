@@ -1,0 +1,7 @@
+@import "App.scss";
+
+.player {
+  @extend .pill;
+  background-color: slateblue;
+  color: white;
+}

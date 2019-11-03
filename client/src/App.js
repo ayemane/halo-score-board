@@ -6,7 +6,6 @@ import logo from "./logo.jpg";
 import Games from "./components/Games";
 
 const client = new ApolloClient({
-  //uri: "http://halo3.us-east-1.elasticbeanstalk.com/graphql"
   uri: process.env.API_URL + "/graphql"
 });
 

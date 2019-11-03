@@ -19,13 +19,41 @@ module.exports = (env, argv) => ({
           loader: "babel-loader"
         }
       },
+
+      {
+        test: /\.s[ac]ss$/,
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              modules: true,
+              importLoaders: 1,
+              localIdentName: "[name]___[local]"
+            }
+          },
+          "sass-loader"
+        ],
+        exclude: /node_modules/
+      },
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader"]
+        oneOf: [
+          {
+            use: ["style-loader", "css-loader"]
+          }
+        ]
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
-        use: ["file-loader"]
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              outputPath: "images"
+            }
+          }
+        ]
       }
     ]
   },

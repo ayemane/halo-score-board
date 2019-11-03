@@ -23,6 +23,7 @@ app.use(bodyParser.json());
 
 app.post("/games", function(req, res) {
   console.log("Add Game!!", req.body);
+
   const { map, players, time, winner } = req.body;
   console.log("map", map);
 

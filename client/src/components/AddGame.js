@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { map } from "lodash";
 import Select from "react-select";
+import style from "../styles/AddGame.scss";
 
 export default class AddGame extends Component {
   constructor(props) {
@@ -60,15 +61,18 @@ export default class AddGame extends Component {
 
   render() {
     return (
-      <div className="row">
-        <div className="col-md-4">
-          <form onSubmit={this.handleSubmit}>
+      <div className={style.addGame}>
+        <form onSubmit={this.handleSubmit}>
+          <div className={style.select}>
             <Select
               name="map"
               defaultValue={this.state.map}
               onChange={this.updateWinner.bind(this)}
               options={this.state.map_options}
             />
+          </div>
+
+          <div className={style.select}>
             <Select
               name="players"
               multiple={true}
@@ -77,6 +81,9 @@ export default class AddGame extends Component {
               options={this.state.players_options}
               isMulti={true}
             />
+          </div>
+
+          <div className={style.select}>
             <Select
               name="winner"
               defaultValue={this.state.winner}
@@ -86,13 +93,13 @@ export default class AddGame extends Component {
                 value: p
               }))}
             />
-            <input
-              type="submit"
-              value="Save"
-              className="btn btn-primary btn-lg"
-            />
-          </form>
-        </div>
+          </div>
+          <input
+            type="submit"
+            value="Save"
+            className="btn btn-primary btn-lg"
+          />
+        </form>
       </div>
     );
   }

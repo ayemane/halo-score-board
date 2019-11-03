@@ -1,0 +1,15 @@
+{
+    "sqltools.connections": [
+        {
+            "database": "halo",
+            "dialect": "MySQL",
+            "isActive": true,
+            "isConnected": true,
+            "name": "halo6 on rds",
+            "password": "ghila,21",
+            "port": 3306,
+            "server": "halo6.cosmwr3ccv2q.us-east-1.rds.amazonaws.com",
+            "username": "halo"
+        }
+    ]
+}

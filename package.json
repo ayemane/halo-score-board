@@ -5,8 +5,8 @@
   "main": "server.js",
   "scripts": {
     "dev": "concurrently \"nodemon api/server.js\" \"npm run dev --prefix client\"",
-    "deploy": "npm run build --prefix client && npm run create-source-bundle",
     "start": "node api/server.js",
+    "deploy": "npm run build --prefix client && npm run create-source-bundle",
     "create-source-bundle": "zip -r dist-`date '+%Y-%m-%d-%H-%M'`.zip ./ -x /node_modules/* -x /client/node_modules/* -x *.git* -x *.zip"
   },
   "repository": {
@@ -41,6 +41,7 @@
     "mysql": "latest",
     "mysql-model": "0.0.3",
     "mysql2": "^1.7.0",
+    "node-sass": "^4.13.0",
     "sequelize": "^5.21.2",
     "sequelize-cli": "^5.5.1"
   },
@@ -49,6 +50,7 @@
     "dotenv": "^8.2.0",
     "eslint-config-prettier": "^4.3.0",
     "eslint-plugin-prettier": "^3.1.1",
+    "file-loader": "^4.2.0",
     "nodemon": "^1.19.4",
     "prettier": "^1.18.2"
   }
