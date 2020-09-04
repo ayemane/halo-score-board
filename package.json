@@ -41,7 +41,7 @@
     "mysql": "latest",
     "mysql-model": "0.0.3",
     "mysql2": "^1.7.0",
-    "node-sass": "^4.13.0",
+    "node-sass": "^4.13.1",
     "sequelize": "^5.21.2",
     "sequelize-cli": "^5.5.1"
   },
