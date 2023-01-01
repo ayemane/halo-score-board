@@ -46,11 +46,11 @@
     "sequelize-cli": "^5.5.1"
   },
   "devDependencies": {
-    "css-loader": "^2.1.1",
+    "css-loader": "^6.7.3",
     "dotenv": "^8.2.0",
     "eslint-config-prettier": "^4.3.0",
     "eslint-plugin-prettier": "^3.1.1",
-    "file-loader": "^4.2.0",
+    "file-loader": "^6.2.0",
     "nodemon": "^1.19.4",
     "prettier": "^1.18.2"
   }
